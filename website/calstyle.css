@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsla(0, 0%, 95%, 0.1);
+  perspective: 1000px; /* Perspective for 3D effect */
+}
+
+
+#backgroundcal {
+  background-color: #d1cfcf74;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#calculator {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5dc; /* Beige background */
+  border: 8px solid beige; /* Beige border */
+  max-width: 400px;
+  overflow: hidden;
+  position: relative; /* Positioning context for the block */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+#display {
+  width: calc(100% - 30px);
+  padding: 10px;
+  font-size: 5rem;
+  text-align: center; /* Align text to center */
+  background-color: black; /* Change background color to black */
+  color: red; /* Change number color to red */
+  position: relative; /* Ensure z-index works properly */
+  z-index: 1; /* Ensure display is above the top block */
+  outline: 2px solid #000000; /* Add outline */
+}
+
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 25px;
+  border-radius: 90px;
+}
+
+button {
+  width: 75px;
+  height: 75px; /* Make buttons square */
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 90px;
+  cursor: pointer;
+  outline: 2px solid #999; /* Add outline */
+  box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2); /* Add box shadow for 3D effect */
+}
+
+button:hover {
+  background-color: hsl(0, 0%, 40%);
+}
+
+button:active {
+  background-color: hsl(0, 0%, 50%);
+}
+
+.operator-btn {
+  background-color: beige; /* Change background color to beige */
+}
+
+.equal {
+  background-color: orange; /* Retain background color orange */
+}
+
+.square-dot {
+  width: 100px;
+  height: 100px;
+  background-color: beige; /* Change background color to beige */
+}
+
+.square-dot:hover {
+  background-color: hsl(0, 0%, 40%);
+}
+
+.square-dot:active {
+  background-color: hsl(0, 0%, 50%);
+}
+
+
+html, .container {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  perspective: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prism {
+  width: 440px; /* Keep the width */
+  height: 600px; /* Keep the height */
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  border: 1px solid black; /* Add outline */
+}
+
+.front {
+  width: 380px;
+  height: 585px;
+  transform: translateZ(60px); /* Decrease the translateZ value */
+}
+
+.back {
+  width: 380px;
+  height: 585px;
+  transform: rotateY(180deg) translateZ(60px); /* Decrease the translateZ value */
+}
+
+.top {
+  width: 380px;
+  height: 120px;
+  transform: rotateX(90deg) translateZ(60px);
+}
+
+.bottom {
+  width: 380px;
+  height: 120px;
+  transform: rotateX(-90deg) translateZ(525px);
+}
+
+.left {
+  width: 120px; /* Adjust the width */
+  height: 585px;
+  transform: rotateY(-90deg) translateZ(-320px); /* Adjust the translateZ value */
+}
+
+.right {
+  width: 120px; /* Adjust the width */
+  height: 585px;
+  transform: rotateY(90deg) translateZ(-60px); /* Adjust the translateZ value */
+}
+
+
+@keyframes spin {
+  0% {
+      transform: rotateY(0deg);
+  }
+  100% {
+      transform: rotateY(360deg);
+  }
+}
+
+.face.front {
+  background-color: rgba(255, 0, 0, 0.5); /* Red */
+}
+
+.face.back {
+  background-color: rgba(0, 255, 0, 0.5); /* Green */
+}
+
+.face.top {
+  background-color: rgba(0, 0, 255, 0.5); /* Blue */
+}
+
+.face.bottom {
+  background-color: rgba(255, 255, 0, 0.5); /* Yellow */
+}
+
+.face.left {
+  background-color: rgba(255, 0, 255, 0.5); /* Magenta */
+}
+
+.face.right {
+  background-color: rgba(0, 255, 255, 0.5); /* Cyan */
+}

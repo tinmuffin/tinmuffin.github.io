@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="calstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="prism" id="prism">
+            <div class="face front">
+                <input id="display" readonly>
+                <div id="backgroundcal">
+                    <div id="keys">
+                        <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+                        <button onclick="appendToDisplay('7')">7</button>
+                        <button onclick="appendToDisplay('8')">8</button>
+                        <button onclick="appendToDisplay('9')">9</button>
+                        <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+                        <button onclick="appendToDisplay('4')">4</button>
+                        <button onclick="appendToDisplay('5')">5</button>
+                        <button onclick="appendToDisplay('6')">6</button>
+                        <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
+                        <button onclick="appendToDisplay('1')">1</button>
+                        <button onclick="appendToDisplay('2')">2</button>
+                        <button onclick="appendToDisplay('3')">3</button>
+                        <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+                        <button onclick="appendToDisplay('0')">0</button>
+                        <button onclick="appendToDisplay('.')">.</button>
+                        <button onclick="calculate()" class="equal">=</button>
+                        <button onclick="clearDisplay()" class="operator-btn">C</button>
+                    </div>
+                </div>
+            </div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom">hi if you see this</div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+const display = document.getElementById("display");
+let isDragging = false;
+let initialX = 0;
+let initialY = 0;
+let previousXRotation = 0;
+let previousYRotation = 0;
+
+document.getElementById("prism").addEventListener('mousedown', function(e) {
+  isDragging = true;
+  initialX = e.clientX;
+  initialY = e.clientY;
+});
+
+document.addEventListener('mouseup', function() {
+  isDragging = false;
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (isDragging) {
+    const deltaX = (e.clientX - initialX) / 100; // Adjust the divisor to control the speed of rotation
+    const deltaY = (e.clientY - initialY) / 100; // Adjust the divisor to control the speed of rotation
+    const prism = document.getElementById("prism");
+
+    const newRotationX = previousXRotation + deltaX;
+    const newRotationY = previousYRotation - deltaY;
+
+    prism.style.transform = `rotateY(${newRotationX}deg) rotateX(${newRotationY}deg)`;
+
+    // Update the previous rotation values for the next iteration
+    previousXRotation = newRotationX;
+    previousYRotation = newRotationY;
+  }
+});
+
+function appendToDisplay(input){
+  display.value += input;
+}
+
+function clearDisplay(){
+  display.value = "";
+}
+
+function calculate(){
+  try{
+    display.value = eval(display.value);
+  }
+  catch(error){
+    display.value = "Error";
+  }
+}
+
+</script>
+
+</html>
