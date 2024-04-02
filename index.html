@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darren Ly's Portfolio</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <div class="parallax-content">
+        <header>
+            <h1>Darren Ly's Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
+
+        <main>
+            <div id="about" class="section">
+                <h2>
+                    <div class="aboutpng"> <img src="images/student.png" width="45px" height="auto" alt="student"> </div>About Me</h2>
+                <p>I am currently a student attending Brooklyn College, where I am pursuing my Bachelor of Science degree in Computer Science. As a student, I am deeply engaged in my coursework and am actively involved in various academic and extracurricular activities. Brooklyn College provides me with an enriching learning environment where I can explore my interests and expand my knowledge. I am passionate about my studies and am committed to achieving my academic goals while also contributing positively to the college community.</p>
+                <a href="contact.html" class="cta-button">Contact Me</a>
+            </div>
+            
+            <div id="languages" class="section">
+                <h2>Languages Known</h2>
+                <ul>
+                    <li><img src="images/html.png" alt="HTML"></li>
+                    <li><img src="images/css-3.png" alt="CSS"></li>
+                    <li><img src="images/java.png" alt="Java"></li>
+                </ul>
+            </div>
+
+            <div id="projects" class="section">
+                <h2>Projects</h2>
+                <div class="project" onclick="previewProject('Project 1')">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+                <div class="project" onclick="previewProject('Project 2')">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                </div>
+                <div class="project" onclick="previewProject('Project 3')">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Darren Ly's Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script> 
+    <script src="preview.js"></script> 
+</body>
+</html>
